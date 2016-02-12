@@ -67,6 +67,7 @@ class HomeController extends Controller
             }
 
             $credentials = Twitter::getCredentials();
+
             
             if (is_object($credentials) && !isset($credentials->error))
             {
@@ -81,7 +82,7 @@ class HomeController extends Controller
 
                 Session::put('access_token', $token);
 
-                return Redirect::to('/')->with('flash_notice', 'Congrats! You\'ve successfully signed in!');
+                return Redirect::to('/home')->with('flash_notice', 'Congrats! You\'ve successfully signed in!');
             }
 
             return Redirect::route('twitter.error')->with('flash_error', 'Crab! Something went wrong while signing you up!');

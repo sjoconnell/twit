@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Twitter App</title>
+        <title>Twitter</title>
 
     </head>
 

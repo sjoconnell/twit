@@ -1,0 +1,16 @@
+.welcome-content {
+    text-align: center;
+    padding-top: 200px;
+}
+
+.login-button {
+    padding-bottom: 50px;
+}
+
+.login-button button, .logout-button button {
+    height: 100px;
+    width: 200px;
+    font-size: 20px;
+    color: blue;
+}
+

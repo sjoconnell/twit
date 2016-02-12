@@ -11,15 +11,6 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-
-// Route::get('twitter/login', 'HomeController@login')->name('twitter.login');
-// Route::get('twitter/callback', 'HomeController@callback')->name('twitter.callback');
-// Route::get('twitter/error', 'HomeController@error')->name('twitter.error');
-// Route::get('twitter/logout', 'HomeController@logout')->name('twitter.logout');
 
 
 /*
@@ -38,6 +29,10 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::get('/', function () {
         return view('welcome');
+    });
+
+    Route::get('/home', function () {
+        return view('home');
     });
 
 
