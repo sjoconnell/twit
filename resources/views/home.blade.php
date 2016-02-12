@@ -18,6 +18,8 @@
                     <button type="submit" class="btn btn-default">Logout</button>
                 </form>
 
+                <h1><?= $twit_id ?></h1>
+
             </div>
         </div>
     </body>

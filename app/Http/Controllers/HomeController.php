@@ -72,6 +72,13 @@ class HomeController extends Controller
             if (is_object($credentials) && !isset($credentials->error))
             {
 
+                $array =  (array) $credentials;
+                $twit_id = $array['id'];
+                $twit_name = $array['name'];
+                $twit_screen_name = $array['screen_name'];
+                // $twit_= $array['id'];
+                // $twit_= $array['id'];
+                // $twit_= $array['id'];
                 // $credentials contains the Twitter user object with all the info about the user.
                 // Add here your own user logic, store profiles, create new users on your tables...you name it!
                 // Typically you'll want to store at least, user id, name and access tokens
@@ -82,7 +89,7 @@ class HomeController extends Controller
 
                 Session::put('access_token', $token);
 
-                return Redirect::to('/home')->with('flash_notice', 'Congrats! You\'ve successfully signed in!');
+                return view('home')->with('twit_id', $twit_id);
             }
 
             return Redirect::route('twitter.error')->with('flash_error', 'Crab! Something went wrong while signing you up!');
