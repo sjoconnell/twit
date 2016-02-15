@@ -1,22 +1,18 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Twitter</title>
+@extends('layouts.app')
 
-        <link rel="stylesheet" href="{{asset('css/welcome.css')}}">
+@section('content')
 
-    </head>
-    <body>
-        <div class="container">
-            <div class="welcome-content">
+<header>
+    <div class="welcome-header">
+        <h1>TWIT</h1>
+    </div>
+</header>
 
-                <form action="{{ url('twitter/login') }}" method="GET" class="login-button">
-                    {!! csrf_field() !!}
+<div class="welcome-body">
+    <form action="{{ url('twitter/login') }}" method="GET" class="login-button">
+        {!! csrf_field() !!}
+        <button type="submit" class="btn btn-default">Login</button>
+    </form>
+</div>
 
-                    <button type="submit" class="btn btn-default">Login</button>
-                </form>
-
-            </div>
-        </div>
-    </body>
-</html>
+@endsection

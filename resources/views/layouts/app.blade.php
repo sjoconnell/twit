@@ -1,20 +1,16 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Twitter</title>
-
+        <title>Twit</title>
+        <link rel="stylesheet" href="{{asset('css/home.css')}}">
+        <link rel="stylesheet" href="{{asset('css/welcome.css')}}">
+        <link href='https://fonts.googleapis.com/css?family=Erica+One' rel='stylesheet' type='text/css'>
     </head>
 
     <body>
-        <header>
-            <div>
-                <h1>Twitter</h1>
-            </div>
-        </header>
 
-        <div>
-            
-        </div>
+        @yield('content')
+
     </body>
     
 </html>

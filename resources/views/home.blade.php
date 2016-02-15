@@ -1,37 +1,36 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Twitter</title>
+@extends('layouts.app')
 
-        <link rel="stylesheet" href="{{asset('css/home.css')}}">
+@section('content')
 
-    </head>
-    <body>
-        <div class="container">
-            <div class="home-content">
+<header>
+    <div class="welcome-header">
+        <h1>TWIT</h1>
+    </div>
+</header>
             
-                <form action="{{ url('twitter/logout') }}" method="GET" class="logout-button">
-                    {!! csrf_field() !!}
+<div class="welcome-body">
 
-                    <button type="submit" class="btn btn-default">Logout</button>
-                </form>
-                <br>
+        <form action="{{ url('twitter/logout') }}" method="GET" class="logout-button">
+            {!! csrf_field() !!}
 
-                <form action="{{ url('/tweet') }}" method="POST" class="tweet-button">
-                    {!! csrf_field() !!}
-                    <input type="text" name="tweet_text">
+            <button type="submit" class="btn btn-default">Logout</button>
+        </form>
+        <br>
 
-                    <button type="submit" class="btn btn-default">Tweet</button>
-                </form>
+        <form action="{{ url('/tweet') }}" method="POST" class="tweet-button">
+            {!! csrf_field() !!}
+            <textarea type="text" name="tweet_text" maxlength="140" ></textarea>
 
-                <br>
-                <ul>
-                    @foreach ($my_tweets as $tweet)
-                    <li>{{ $tweet['text'] }}</li>
-                    @endforeach
-                </ul>
+            <button type="submit" class="btn btn-default">Tweet</button>
+        </form>
 
-            </div>
-        </div>
-    </body>
-</html>
+        <br>
+        <ul>
+            @foreach ($my_tweets as $tweet)
+            <li>{{ $tweet['text'] }}</li>
+             @endforeach
+         </ul>
+</div>         
+
+
+@endsection

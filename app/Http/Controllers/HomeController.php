@@ -76,6 +76,7 @@ class HomeController extends Controller
                 $twit_id = $array['id'];
                 $twit_name = $array['name'];
                 $twit_screen_name = $array['screen_name'];
+                $twit_image = $array["profile_image_url"];
                 // $twit_= $array['id'];
                 // $twit_= $array['id'];
                 // $twit_= $array['id'];
@@ -92,10 +93,13 @@ class HomeController extends Controller
 
                 // This is also the moment to log in your users if you're using Laravel's Auth class
                 // Auth::login($user) should do the trick.
+
                 Session::put('access_token', $token);
                 Session::put('twit_screen_name', $twit_screen_name);
-                Session::put('my_tweets', $my_tweets);
                 Session::put('twit_id', $twit_id);
+                Session::put('twit_name', $twit_name);
+                Session::put('my_tweets', $my_tweets);
+                Session::put('twit_image', $twit_image);
 
                 return Redirect::to('/home');
 
@@ -111,12 +115,19 @@ class HomeController extends Controller
 
             $my_tweets = $request->session()->get('my_tweets');
             $twit_id = $request->session()->get('twit_id');
+            $twit_name = $request->session()->get('twit_name');
+            $twit_screen_name = $request->session()->get('twit_screen_name');
+            $twit_image = $request->session()->get('twit_image');
 
             return view('home')->with([
-                        'twit_id' => $twit_id,
                         'my_tweets' => $my_tweets,
+                        'twit_id' => $twit_id,
+                        'twit_name' => $twit_name,
+                        'twit_screen_name' => $twit_screen_name,
+                        'twit_image' => $twit_image,
                         ]);
         } else {
+
             return Redirect::to('/');
         }
     }
@@ -136,6 +147,7 @@ class HomeController extends Controller
     public function tweet(Request $request) {
 
         $tweet_text = $request->input('tweet_text');
+
         $twit_screen_name = $request->session()->get('twit_screen_name');
 
         Twitter::postTweet(['status' => $tweet_text, 'format' => 'json']);
