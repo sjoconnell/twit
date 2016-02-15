@@ -79,6 +79,12 @@ class HomeController extends Controller
                 // $twit_= $array['id'];
                 // $twit_= $array['id'];
                 // $twit_= $array['id'];
+
+                $tweets = Twitter::getUserTimeline(['screen_name' => $twit_screen_name, 'count' => 20, 'format' => 'json']);
+
+                $my_tweets = json_decode($tweets, true);
+
+
                 // $credentials contains the Twitter user object with all the info about the user.
                 // Add here your own user logic, store profiles, create new users on your tables...you name it!
                 // Typically you'll want to store at least, user id, name and access tokens
@@ -89,7 +95,10 @@ class HomeController extends Controller
 
                 Session::put('access_token', $token);
 
-                return view('home')->with('twit_id', $twit_id);
+                return view('home')->with([
+                    'twit_id' => $twit_id,
+                    'my_tweets' => $my_tweets,
+                    ]);
             }
 
             return Redirect::route('twitter.error')->with('flash_error', 'Crab! Something went wrong while signing you up!');
@@ -106,5 +115,16 @@ class HomeController extends Controller
         Session::forget('access_token');
         return Redirect::to('/')->with('flash_notice', 'You\'ve successfully logged out!');
     }
+
+    public function tweet(Request $request) {
+
+        $tweet_text = $request->input('tweet_text');
+
+        Twitter::postTweet(['status' => $tweet_text, 'format' => 'json']);
+
+        
+    }
+
+
 
 }

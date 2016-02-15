@@ -40,5 +40,6 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('twitter/callback', 'HomeController@callback')->name('twitter.callback');
     Route::get('twitter/error', 'HomeController@error')->name('twitter.error');
     Route::get('twitter/logout', 'HomeController@logout')->name('twitter.logout');
+    Route::get('/tweet', 'HomeController@tweet');
 
 });

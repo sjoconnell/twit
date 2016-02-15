@@ -9,16 +9,27 @@
     <body>
         <div class="container">
             <div class="home-content">
-
-                <h1>Test to see if Login Works!</h1>
-
+            
                 <form action="{{ url('twitter/logout') }}" method="GET" class="logout-button">
                     {!! csrf_field() !!}
 
                     <button type="submit" class="btn btn-default">Logout</button>
                 </form>
+                <br>
 
-                <h1><?= $twit_id ?></h1>
+                <form action="{{ url('/tweet') }}" method="GET" class="tweet-button">
+                    {!! csrf_field() !!}
+                    <input type="text" name="tweet_text">
+
+                    <button type="submit" class="btn btn-default">Tweet</button>
+                </form>
+
+                <br>
+                <ul>
+                    @foreach ($my_tweets as $tweet)
+                    <li>{{ $tweet['text'] }}</li>
+                    @endforeach
+                </ul>
 
             </div>
         </div>
