@@ -17,7 +17,7 @@
                 </form>
                 <br>
 
-                <form action="{{ url('/tweet') }}" method="GET" class="tweet-button">
+                <form action="{{ url('/tweet') }}" method="POST" class="tweet-button">
                     {!! csrf_field() !!}
                     <input type="text" name="tweet_text">
 

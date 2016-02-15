@@ -92,16 +92,32 @@ class HomeController extends Controller
 
                 // This is also the moment to log in your users if you're using Laravel's Auth class
                 // Auth::login($user) should do the trick.
-
                 Session::put('access_token', $token);
+                Session::put('twit_screen_name', $twit_screen_name);
+                Session::put('my_tweets', $my_tweets);
+                Session::put('twit_id', $twit_id);
 
-                return view('home')->with([
-                    'twit_id' => $twit_id,
-                    'my_tweets' => $my_tweets,
-                    ]);
+                return Redirect::to('/home');
+
             }
 
             return Redirect::route('twitter.error')->with('flash_error', 'Crab! Something went wrong while signing you up!');
+        }
+    }
+
+    public function home(Request $request) {
+
+        if ($request->session()->has('access_token')) {
+
+            $my_tweets = $request->session()->get('my_tweets');
+            $twit_id = $request->session()->get('twit_id');
+
+            return view('home')->with([
+                        'twit_id' => $twit_id,
+                        'my_tweets' => $my_tweets,
+                        ]);
+        } else {
+            return Redirect::to('/');
         }
     }
 
@@ -116,15 +132,23 @@ class HomeController extends Controller
         return Redirect::to('/')->with('flash_notice', 'You\'ve successfully logged out!');
     }
 
+
     public function tweet(Request $request) {
 
         $tweet_text = $request->input('tweet_text');
+        $twit_screen_name = $request->session()->get('twit_screen_name');
 
         Twitter::postTweet(['status' => $tweet_text, 'format' => 'json']);
 
+        $tweets = Twitter::getUserTimeline(['screen_name' => $twit_screen_name, 'count' => 20, 'format' => 'json']);
+
+        $my_tweets = json_decode($tweets, true);
+
+        Session::put('my_tweets', $my_tweets);
+
+        return Redirect::to('/home');
         
     }
-
 
 
 }

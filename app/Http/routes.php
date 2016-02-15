@@ -31,15 +31,13 @@ Route::group(['middleware' => ['web']], function () {
         return view('welcome');
     });
 
-    Route::get('/home', function () {
-        return view('home');
-    });
+    Route::get('/home', 'HomeController@home');
 
 
     Route::get('twitter/login', 'HomeController@login')->name('twitter.login');
     Route::get('twitter/callback', 'HomeController@callback')->name('twitter.callback');
     Route::get('twitter/error', 'HomeController@error')->name('twitter.error');
     Route::get('twitter/logout', 'HomeController@logout')->name('twitter.logout');
-    Route::get('/tweet', 'HomeController@tweet');
+    Route::post('/tweet', 'HomeController@tweet');
 
 });
