@@ -38,11 +38,22 @@
         </div>
 
         <div class="right-box">
+            <div class="header-box clearfix">
+                <h1 class="tweets-left">My Tweets</h1>
+                <h1 class="timeline-right">Timeline</h1>
+            </div>
             <div class="your-tweet-box">
-                <h1>Your Tweets</h1>
                 <ul>
-                    @foreach ($my_tweets as $tweet)
-                    <li>{{ $tweet['text'] }}</li>
+                    @foreach ($linkified_tweets as $tweet)
+                    <li><?= $tweet ?></li>
+                     @endforeach
+                </ul>
+            </div>
+
+            <div class="your-timeline-box invisible">
+                <ul>
+                    @foreach ($timeline_tweets as $time)
+                    <li><?= $time ?></li>
                      @endforeach
                 </ul>
             </div>

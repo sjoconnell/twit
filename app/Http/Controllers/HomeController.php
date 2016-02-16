@@ -119,8 +119,21 @@ class HomeController extends Controller
             $twit_screen_name = $request->session()->get('twit_screen_name');
             $twit_image = $request->session()->get('twit_image');
 
+            foreach ($my_tweets as $tweet) {
+                $linkified_tweets[] = Twitter::linkify($tweet['text']);
+            }
+
+            $feed = Twitter::getHomeTimeline(['count' => 10, 'format' => 'json']);
+
+            $timeline = json_decode($feed, true);
+
+            foreach ($timeline as $time) {
+                $timeline_tweets[] = Twitter::linkify($time['text']);
+            }
+
             return view('home')->with([
-                        'my_tweets' => $my_tweets,
+                        'linkified_tweets' => $linkified_tweets,
+                        'timeline_tweets' => $timeline_tweets,
                         'twit_id' => $twit_id,
                         'twit_name' => $twit_name,
                         'twit_screen_name' => $twit_screen_name,
@@ -145,6 +158,10 @@ class HomeController extends Controller
 
 
     public function tweet(Request $request) {
+
+        $this->validate($request, [
+            'tweet_text' => 'required|max:140',
+        ]);
 
         $tweet_text = $request->input('tweet_text');
 

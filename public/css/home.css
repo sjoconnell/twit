@@ -91,26 +91,40 @@
     margin-bottom: 20px;
 }
 
-.your-tweet-box {
+.your-tweet-box, .your-timeline-box, .header-box {
     width: 500px;
     background-color: white;
     border-radius: 10px;
     border: 5px solid black;
 }
 
-.your-tweet-box h1 {
+
+.tweets-left {
+    float: left;
+    padding-left: 30px;
+}
+
+.timeline-right {
+    float: right;
+    padding-right: 30px;
+}
+
+.header-box h1 {
     font-size: 25px;
     font-family: 'Erica One';
     letter-spacing: 1px;
     text-align: center;
     margin-top: 10px;
     padding-bottom: 15px;
-    border-bottom: 2px solid black;
 }
 
-.your-tweet-box li {
+.your-tweet-box li, .your-timeline-box li {
     text-align: center;
     border-bottom: 2px solid black;
     padding: 20px 0px;
     font-family: 'Open Sans',sans-serif;
+}
+
+.invisible {
+    display: none;
 }
