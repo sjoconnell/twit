@@ -1,12 +1,106 @@
 .wrapper {
-    width: 90%;
+    width: 85%;
     height: 100%;
     margin: 0 auto;
 }
 
-.profile-box {
+.left-box {
     float: left;
-    height: 300px;
-    width: 400px;
+    margin-top: 20px
+}
+
+.profile-box {
+    height: 200px;
+    width: 350px;
     background-color: white;
+    border-radius: 10px;
+    border: 5px solid black;
+}
+
+
+.twitter-image {
+    height: 85px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.profile-box h1 {
+    display: inline-block;
+    font-size: 25px;
+    font-family: 'Erica One';
+    letter-spacing: 1px;
+    margin-left: 20px;
+}
+
+.profile-box p {
+    margin-top: 40px;
+    margin-left: 10px;
+    display: inline-block;
+    font-size: 20px;
+    font-family: 'Open Sans',sans-serif;
+}
+
+.logout-button {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.logout-button button {
+    padding: 20px 35px;
+    width: 160px;
+    font-size: 15px;
+}
+
+.tweet-box {
+    background-color: white;
+    height: 200px;
+    width: 350px;
+    border-radius: 10px;
+    margin-top: 20px;
+    border: 5px solid black;
+}
+
+.tweet-button textarea {
+    margin-left: 10px;
+    margin-top: 10px;
+    width: 325px;
+    height: 100px;
+}
+
+.tweet-button button {
+    padding: 20px 35px;
+    width: 160px;
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+    font-size: 15px;
+}
+
+.right-box {
+    float: right;
+    margin-top: 20px;
+}
+
+.your-tweet-box {
+    width: 500px;
+    background-color: white;
+    border-radius: 10px;
+    border: 5px solid black;
+}
+
+.your-tweet-box h1 {
+    font-size: 25px;
+    font-family: 'Erica One';
+    letter-spacing: 1px;
+    text-align: center;
+    margin-top: 10px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid black;
+}
+
+.your-tweet-box li {
+    text-align: center;
+    border-bottom: 2px solid black;
+    padding: 20px 0px;
+    font-family: 'Open Sans',sans-serif;
 }
