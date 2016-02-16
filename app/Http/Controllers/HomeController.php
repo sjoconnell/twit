@@ -81,7 +81,7 @@ class HomeController extends Controller
                 // $twit_= $array['id'];
                 // $twit_= $array['id'];
 
-                $tweets = Twitter::getUserTimeline(['screen_name' => $twit_screen_name, 'count' => 20, 'format' => 'json']);
+                $tweets = Twitter::getUserTimeline(['screen_name' => $twit_screen_name, 'count' => 10, 'format' => 'json']);
 
                 $my_tweets = json_decode($tweets, true);
 
@@ -152,7 +152,7 @@ class HomeController extends Controller
 
         Twitter::postTweet(['status' => $tweet_text, 'format' => 'json']);
 
-        $tweets = Twitter::getUserTimeline(['screen_name' => $twit_screen_name, 'count' => 20, 'format' => 'json']);
+        $tweets = Twitter::getUserTimeline(['screen_name' => $twit_screen_name, 'count' => 10, 'format' => 'json']);
 
         $my_tweets = json_decode($tweets, true);
 
