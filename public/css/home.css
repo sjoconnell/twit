@@ -4,6 +4,14 @@
     margin: 0 auto;
 }
 
+.home-body {
+    background-image: linear-gradient(
+        red, #f06d06
+    );
+    min-width: 100%;
+    min-height: 100%;
+}
+
 .left-box {
     float: left;
     margin-top: 20px

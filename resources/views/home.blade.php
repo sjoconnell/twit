@@ -8,7 +8,7 @@
     </div>
 </header>
             
-<div class="welcome-body">
+<div class="home-body clearfix">
     <div class="wrapper">
         <div class="left-box">
             <div class="profile-box">
