@@ -4,22 +4,23 @@
 
 <header>
     <div class="welcome-header">
-        <h1>TWIT</h1>
+        <h1 class="animated flip">TWIT</h1>
     </div>
 </header>
             
 <div class="welcome-body">
+    <div class="wrapper">
+        <div class="profile-box">
+            <form action="{{ url('twitter/logout') }}" method="GET" class="logout-button">
+                {!! csrf_field() !!}
 
-        <form action="{{ url('twitter/logout') }}" method="GET" class="logout-button">
-            {!! csrf_field() !!}
-
-            <button type="submit" class="btn btn-default">Logout</button>
-        </form>
-        <br>
+                <button type="submit" class="btn btn-default">Logout</button>
+            </form>
+        </div>
 
         <form action="{{ url('/tweet') }}" method="POST" class="tweet-button">
             {!! csrf_field() !!}
-            <textarea type="text" name="tweet_text" maxlength="140" ></textarea>
+            <textarea type="text" name="tweet_text" maxlength="140" required="required" ></textarea>
 
             <button type="submit" class="btn btn-default">Tweet</button>
         </form>
@@ -30,6 +31,7 @@
             <li>{{ $tweet['text'] }}</li>
              @endforeach
          </ul>
+    </div>
 </div>         
 
 

@@ -15,17 +15,19 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
     letter-spacing: 5px;
 }
 
+/*red, #f06d06*/
+
 .welcome-body {
-    background-image: url("../images/twit-background.jpg");
-    background-position: center;
-    background-size: cover;
+    background-image: linear-gradient(
+        red, #f06d06
+    );
     width: 100%;
-    height: 800px;
+    height: 700px;
 }
 
 .welcome-body form {
     text-align: center;
-    padding-top: 15%;
+    padding-top: 210px;
 }
 
 .login-button button {

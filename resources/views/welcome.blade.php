@@ -4,7 +4,7 @@
 
 <header>
     <div class="welcome-header">
-        <h1>TWIT</h1>
+        <h1 class="animated flip">TWIT</h1>
     </div>
 </header>
 

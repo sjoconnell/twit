@@ -1,0 +1,12 @@
+.wrapper {
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.profile-box {
+    float: left;
+    height: 300px;
+    width: 400px;
+    background-color: white;
+}
