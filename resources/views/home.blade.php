@@ -40,7 +40,7 @@
         <div class="right-box">
             <div class="header-box clearfix">
                 <h1 class="tweets-left">My Tweets</h1>
-                <h1 class="timeline-right">Timeline</h1>
+                <h1 class="timeline-right grey-color">Timeline</h1>
             </div>
             <div class="your-tweet-box">
                 <ul>

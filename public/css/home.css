@@ -118,6 +118,10 @@
     padding-bottom: 15px;
 }
 
+.header-box h1:hover {
+    cursor: pointer;
+}
+
 .your-tweet-box li, .your-timeline-box li {
     text-align: center;
     border-bottom: 2px solid black;
@@ -127,4 +131,8 @@
 
 .invisible {
     display: none;
+}
+
+.grey-color {
+    color: #C3C6C7;
 }
