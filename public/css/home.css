@@ -19,7 +19,7 @@
 
 .profile-box {
     height: 200px;
-    width: 350px;
+    min-width: 350px;
     background-color: white;
     border-radius: 10px;
     border: 5px solid black;
