@@ -127,13 +127,19 @@ class HomeController extends Controller
 
             $timeline = json_decode($feed, true);
 
+
             foreach ($timeline as $time) {
                 $timeline_tweets[] = Twitter::linkify($time['text']);
+                $timeline_data[] = $time['user'];
             }
+
+            $ti = count($timeline_tweets);
 
             return view('home')->with([
                         'linkified_tweets' => $linkified_tweets,
                         'timeline_tweets' => $timeline_tweets,
+                        'timeline_data' => $timeline_data,
+                        'ti' => $ti,
                         'twit_id' => $twit_id,
                         'twit_name' => $twit_name,
                         'twit_screen_name' => $twit_screen_name,

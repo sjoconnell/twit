@@ -15,7 +15,6 @@
                 <img src="{{$twit_image}}" class="twitter-image">
 
                 <h1>{{$twit_name}}</h1>
-                <br>
 
                 <p>@ {{$twit_screen_name}}</p>
 
@@ -39,22 +38,32 @@
 
         <div class="right-box">
             <div class="header-box clearfix">
-                <h1 class="tweets-left">My Tweets</h1>
-                <h1 class="timeline-right grey-color">Timeline</h1>
+                <h1 class="tweets-left grey-color">My Tweets</h1>
+                <h1 class="timeline-right">Timeline</h1>
             </div>
-            <div class="your-tweet-box">
+            <div class="your-tweet-box invisible">
                 <ul>
                     @foreach ($linkified_tweets as $tweet)
                     <li><?= $tweet ?></li>
-                     @endforeach
+                    @endforeach
                 </ul>
             </div>
 
-            <div class="your-timeline-box invisible">
+            <div class="your-timeline-box">
                 <ul>
-                    @foreach ($timeline_tweets as $time)
-                    <li><?= $time ?></li>
-                     @endforeach
+                    @for ($i = 0; $i < $ti; $i++)
+                    <li class="clearfix">
+                        <div class="tweet-image">
+                            <img src="<?= $timeline_data[$i]['profile_image_url'] ?>">
+                        </div>
+                        <div class="tweet-content">
+                            <p><?= $timeline_data[$i]['name'] ?></p>
+                            <p>@<?= $timeline_data[$i]['screen_name'] ?></p>
+                            <br>
+                            <?= $timeline_tweets[$i] ?>
+                        </div>
+                    </li>
+                    @endfor
                 </ul>
             </div>
         </div>
