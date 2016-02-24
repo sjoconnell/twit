@@ -53,7 +53,7 @@
 
 .tweet-box {
     background-color: white;
-    height: 200px;
+    min-height: 200px;
     width: 350px;
     border-radius: 10px;
     margin-top: 20px;
@@ -75,6 +75,15 @@
     margin: auto;
     margin-top: 10px;
     font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.alert-danger {
+    text-align: center;
+}
+
+.alert-danger li {
+    margin-top: 10px;
 }
 
 .right-box {
